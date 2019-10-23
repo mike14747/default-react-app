@@ -50,6 +50,14 @@ git remote add origin git@github.com:mike14747/default-react-app.git
 git push -u origin master
 ```
 * Ran 'yarn update' because 3 packages React installed had security vulnerabilities. Doing this fixed all 3 issues.
+* The following files were added at the root location: '.eslintrc.json' and '.eslintignore'. These are my linting config and ignore files which contain my linting rules.
+* I had to remove the following line from 'client/package.json' to get eslint to use my linting configuration in the root folder:
+```
+"eslintConfig": {
+    "extends": "react-app"
+},
+```
+* Some sample code from React's example docs was added to 'client/src/App.js' in place of the default code... which loads a simple 3 page navigation app.
 
 ## This project was created and is maintained by:
 
