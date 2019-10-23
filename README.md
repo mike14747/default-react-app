@@ -49,6 +49,7 @@ git commit -m "initial file upload after linking the local and remote repos"
 git remote add origin git@github.com:mike14747/default-react-app.git
 git push -u origin master
 ```
+* Ran 'yarn update' because 3 packages React installed had security vulnerabilities. Doing this fixed all 3 issues.
 
 ## This project was created and is maintained by:
 
