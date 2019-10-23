@@ -41,7 +41,14 @@ yarn add --dev eslint@6.5.1 eslint-config-standard babel-eslint@10.0.3 eslint-pl
 ```
 * The following folders were created on the root: 'config' (which will house the database schema and seeds files), 'models' (which will house all the database interactive functions) and 'controllers' (which will house all the route/controller files).
 * The following empty files were added: 'config/schema.sql', 'config/seeds.sql', 'models/index.js', 'controllers/index.js'.
-* Then I ran 'git init' in the terminal and added it to the remote github repo using this command: 'git remote add origin https://github.com/mike14747/default-react-app'.
+* Then I linked the local folder to the remote github repo:
+```
+git init
+git add .
+git commit -m "initial file upload after linking the local and remote repos"
+git remote add origin git@github.com:mike14747/default-react-app.git
+git push -u origin master
+```
 
 ## This project was created and is maintained by:
 
