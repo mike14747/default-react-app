@@ -1,8 +1,13 @@
 require('dotenv').config();
-const express = require('express');
-
-const app = express();
 const { PORT } = process.env;
+
+const express = require('express');
+const app = express();
+
+app.get('/test', (req, res) => res.send('Hello World!'));
+
+const controllers = require('./controllers');
+app.use('/api', controllers);
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());

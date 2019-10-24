@@ -57,6 +57,7 @@ git push -u origin master
     "extends": "react-app"
 },
 ```
+* Cleaned up all of the linting errors in the client folder (which were all the default React app's files).
 * Some sample code from React's example docs was added to 'client/src/App.js' in place of the default code... which loads a simple 3 page navigation app.
 
 ## This project was created and is maintained by:
