@@ -28,7 +28,7 @@ yarn add dotenv express if-env mysql2
 ```
 yarn add --dev eslint@6.5.1 eslint-config-standard babel-eslint@10.0.3 eslint-plugin-import eslint-plugin-node eslint-plugin-promise eslint-plugin-react eslint-plugin-standard concurrently nodemon
 ```
-* My reason for implicitly specifying a version for **eslint** and **babel-eslint** was because they are also installed by React in **client/node_modules** and since those exact versions were installed by React, it's important to not have different versions installed in different folder levels.
+* My reason for implicitly specifying a version for **eslint** and **babel-eslint** was because they are also installed by React in **client/node_modules** and it's important to not have different versions installed in different folder levels.
 * The following lines were added to **package.json**:
 ```
 "main": "server.js",
