@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import {
     BrowserRouter as Router,
     Switch,
@@ -50,6 +50,34 @@ function About() {
     return <h2>About</h2>;
 }
 
-function Users() {
-    return <h2>Users</h2>;
+class Users extends Component {
+    state = {
+        usersArray: [],
+    };
+
+    componentDidMount() {
+        fetch('/api/users/1')
+            .then((response) => response.json())
+            .then((data) => {
+                this.setState({ usersArray: data });
+            })
+            .catch((error) => {
+                console.log('There has been an error.\n\n' + error);
+            });
+    }
+
+    render() {
+        return (
+            <div>
+                {this.state.usersArray.map(user => (
+                    <div key={user.user_id}>
+                        <p>User ID: {user.user_id}</p>
+                        <p>Username: {user.username}</p>
+                        <p>Password: {user.password}</p>
+                    </div>
+                ))}
+            </div>
+
+        );
+    }
 }
