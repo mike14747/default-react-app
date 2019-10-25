@@ -57,11 +57,11 @@ class Users extends Component {
 
     componentDidMount() {
         fetch('/api/users/1')
-            .then((response) => response.json())
-            .then((data) => {
+            .then(response => response.json())
+            .then(data => {
                 this.setState({ usersArray: data });
             })
-            .catch((error) => {
+            .catch(error => {
                 console.log('There has been an error.\n\n' + error);
             });
     }
