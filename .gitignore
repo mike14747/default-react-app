@@ -78,3 +78,7 @@ typings/
 .env.development.local
 .env.test.local
 .env.production.local
+
+# Lock files
+yarn.lock
+package-lock.json

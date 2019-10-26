@@ -61,7 +61,7 @@ git push -u origin master
 ```
 * Ran **yarn update** because 3 packages React installed had security vulnerabilities. Doing this fixed all 3 issues.
 * The following files were added at the root location: **.eslintrc.json** and **.eslintignore**. These are my linting config and ignore files which contain my linting rules.
-* I had to remove the following line from **client/package.json** to get eslint to use my linting configuration in the root folder:
+* I had to remove the following line from **client/package.json** to get my root eslint config/rules to work for the client folder:
 ```
 "eslintConfig": {
     "extends": "react-app"
