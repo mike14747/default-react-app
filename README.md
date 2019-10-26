@@ -1,7 +1,10 @@
-## Default React App Setup
+# Default React App Setup
 This repo contains my default React JS app starting point.
 
-#### Here's my step by step process to get to this point:
+## What is this project?
+
+
+## What was the process of getting to this point?
 
 * Run **create-react-app default-react-app** in the terminal.
 * Since React was installed using yarn, I used yarn instead of npm for everything. I didn't want to have a **yarn.lock** file on the front end and a **package-lock.json** file on the backend.
@@ -15,7 +18,7 @@ DB_HOST=localhost
 DB_PORT=3306
 DB_USER=root
 DB_PW=<your_mysql_password>
-DB_NAME=testDB
+DB_NAME=testDB1
 ```
 * I created a **server.js** file in the root and only put the bare minimum in it for now.
 * The following folders were created: **client/src/components**, **client/src/pages**, **client/src/pages/home**, **client/src/components/header**, **client/src/components/navbar**, **client/src/components/footer**.
@@ -47,7 +50,7 @@ yarn add --dev eslint@6.5.1 eslint-config-standard babel-eslint@10.0.3 eslint-pl
 ```
 "proxy": "http://localhost:3001/"
 ```
-* The following MVC folders/files were created on the root: **config/connection.js**, **config/schema.sql** (with schema for a testDB), **config/seeds.sql** (with the seeds data for the testDB), **models/index.js**, **models/user.js** (as a test model), **controllers/index.js** and **controllers/testController.js** (as a test controller file). These comprise the M and C portions of MVC.
+* The following MVC folders/files were created on the root: **config/connection.js**, **config/schema.sql** (with schema for a test database), **config/seeds.sql** (with the seeds data for the test database), **models/index.js**, **models/user.js** (as a test model), **controllers/index.js** and **controllers/testController.js** (as a test controller file). These comprise the M and C portions of MVC.
 * Then I linked the local folder to the remote github repo:
 ```
 git init
@@ -66,7 +69,10 @@ git push -u origin master
 ```
 * Cleaned up all of the linting errors in the client folder (which were all the default React app's files).
 * Some sample code from React's example docs was added to **client/src/App.js** in place of the default code... which loads a simple 3 page navigation app.
-* I also replaced the functional **User** component in **App.js** with a **User** class and set it up to fetch data from the testDB and render it to the browser just to test the whole MVC system.
+* I also replaced the functional **User** component in **App.js** with a **User** class and set it up to fetch data from the test database and render it to the browser just to test the whole MVC system.
+
+## How can you get started using this project?
+
 
 ## This project was created and is maintained by:
 
