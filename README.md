@@ -1,8 +1,12 @@
 # Default React App Setup
-This repo contains my default React JS app starting point.
 
 ## What is this project?
-
+* This repo contains my default React JS app starting point.
+* It's a functioning bare bones React app using the MVC model.
+* In React, there are 3 components (2 functional and 1 that's a class) in App.js with some simple routing and navigation.
+* There is a test database included with a single table and a single row of data in that table... just for testing.
+* It includes just the bare bones npm dependencies (dotenv, express, if-env and mysql2).
+* Several devDependencies are installed... mostly for linting.
 
 ## What was the process of getting to this point?
 
@@ -72,7 +76,24 @@ git push -u origin master
 * I also replaced the functional **User** component in **App.js** with a **User** class and set it up to fetch data from the test database and render it to the browser just to test the whole MVC system.
 
 ## How can you get started using this project?
-
+1. Clone this repo onto your local computer:
+```
+git clone git@github.com:mike14747/default-react-app.git
+```
+2. Create a **.env** file in the root folder with the following content:
+```
+PORT=3001
+DB_HOST=localhost
+DB_PORT=3306
+DB_USER=root
+DB_PW=<your-mysql-password>
+DB_NAME=testDB1
+```
+3. Install the npm packages. From the root directory, run:
+```
+yarn install
+```
+4. Install the test database by using the schema and seeds files (**config/schema.sql** and **config/seeds.sql**).
 
 ## This project was created and is maintained by:
 
