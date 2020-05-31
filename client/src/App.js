@@ -1,11 +1,16 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import axios from 'axios';
+import './css/my_style.css';
+import './css/style.css';
+import Header from './components/header/header';
+import Footer from './components/footer/footer';
 
 export default function App() {
     return (
         <Router>
-            <div>
+            <div className="container border bg-white">
+                <Header />
                 <nav>
                     <ul>
                         <li>
@@ -19,7 +24,6 @@ export default function App() {
                         </li>
                     </ul>
                 </nav>
-
                 {/* A <Switch> looks through its children <Route>s and renders the first one that matches the current URL. */}
                 {/* There are 2 ways of writing routes and rendering components. Both methods are included here. */}
                 {/* A 404 page is specified last to catch all non-existing routes. */}
@@ -29,6 +33,7 @@ export default function App() {
                     <Route path="/users"><Users /></Route>
                     <Route component={NoMatch} />
                 </Switch>
+                <Footer />
             </div>
         </Router>
     );
@@ -45,7 +50,7 @@ function About() {
 const NoMatch = () => {
     return (
         <div>
-            <h2>Error 404!</h2>
+            <h3 className="text-danger mb-4">Error 404!</h3>
             <p>An error has occurred.</p>
             <p>The page you are looking for does not exist!</p>
         </div>

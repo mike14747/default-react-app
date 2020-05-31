@@ -152,6 +152,9 @@ git push -u origin master
 -   Cleaned up all of the linting errors in the client folder (which were all in the default React app's files).
 -   Some sample code from React's example docs was added to **client/src/App.js** in place of the default code... which loads a simple 3 page (plus a NoMatch page) navigation app.
 -   I also replaced the functional **User** component in **App.js** with a **User** class and set it up to fetch data (using **axios**) from the test database and render it to the browser just to test the whole MVC system.
+-   Added the following folders: **client/public/images** and **client/src/css** (these are the best places to use images and css in a React app).
+-   Added a sample image to: client/public/images and a couple css files in: client/src/css.
+-   Added header and footer components to **client/src/components**, then added them to client/src/App.js to be rendered with every component inside the Router (before and after the routes).
 
 ## How can you get started using this project?
 
