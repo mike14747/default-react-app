@@ -4,7 +4,7 @@
 
 -   This repo contains my default React JS app starting point.
 -   It's a functioning bare bones React app using the MVC model.
--   In React, there are 4 components (3 functional and 1 that's a class) in App.js with some simple routing and navigation.
+-   In React, there are several components (some in client/src/App.js, some in client/src/components and some in client/src/pages) with some simple routing and navigation.
 -   There is a test database included with a single table and a single row of data in that table... just for testing.
 -   It includes just the bare bones npm dependencies (dotenv, express, if-env and mysql2).
 -   Several devDependencies are installed... mostly for linting.
@@ -141,7 +141,7 @@ git push -u origin master
 
 -   Ran **npm update** and **npm audit fix** in the root and in the client folder because some packages had security vulnerabilities.
 -   The following files were added at the root location: **.eslintrc.json** and **.eslintignore**. These are my linting config and ignore files which contain my linting rules.
--   I had to remove the following line from **client/package.json** to get my root eslint config/rules to work for the client folder:
+-   I had to remove the following line from **client/package.json** to get my root **eslint config/rules** to work for the client folder:
 
 ```
 "eslintConfig": {
@@ -150,7 +150,7 @@ git push -u origin master
 ```
 
 -   Cleaned up all of the linting errors in the client folder (which were all in the default React app's files).
--   Some sample code from React's example docs was added to **client/src/App.js** in place of the default code... which loads a simple 3 page (plus a NoMatch page) navigation app.
+-   Some basic css, components, pages, navigation and routes **client/src/App.js** in place of the default code... which renders a basic functioning app.
 -   I also replaced the functional **User** component in **App.js** with a **User** class and set it up to fetch data (using **axios**) from the test database and render it to the browser just to test the whole MVC system.
 -   Added the following folders: **client/public/images** and **client/src/css** (these are the best places to use images and css in a React app).
 -   Added a sample image to: client/public/images and a couple css files in: client/src/css.

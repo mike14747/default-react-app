@@ -1,29 +1,19 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import axios from 'axios';
 import './css/my_style.css';
 import './css/style.css';
 import Header from './components/header/header';
+import Navbar from './components/navbar/navbar';
 import Footer from './components/footer/footer';
+import Home from './pages/home/home';
 
 export default function App() {
     return (
         <Router>
             <div className="container border bg-white">
                 <Header />
-                <nav>
-                    <ul>
-                        <li>
-                            <Link to="/">Home</Link>
-                        </li>
-                        <li>
-                            <Link to="/about">About</Link>
-                        </li>
-                        <li>
-                            <Link to="/users">Users</Link>
-                        </li>
-                    </ul>
-                </nav>
+                <Navbar />
                 {/* A <Switch> looks through its children <Route>s and renders the first one that matches the current URL. */}
                 {/* There are 2 ways of writing routes and rendering components. Both methods are included here. */}
                 {/* A 404 page is specified last to catch all non-existing routes. */}
@@ -37,10 +27,6 @@ export default function App() {
             </div>
         </Router>
     );
-}
-
-function Home() {
-    return <h2>Home</h2>;
 }
 
 function About() {
