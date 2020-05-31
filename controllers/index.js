@@ -1,26 +1,17 @@
-// this goes in controllers/index.js
 // all these routes point to the /api folder as specified in server.js
 
 const router = require('express').Router();
-const path = require('path');
 
-/*
-const getController = require('./getController');
-const postController = require('./postController');
-const putController = require('./putController');
-const deleteController = require('./deleteController');
+router.use('/', require('./testController'));
 
-router.use('/', getController);
-router.use('/', postController);
-router.use('/', putController);
-router.use('/', deleteController);
-*/
+router.use((req, res, next) => {
+    const error = new Error('Route not found');
+    error.status = 404;
+    next(error);
+});
 
-const testController = require('./testController');
-router.use('/', testController);
-
-router.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../client/build/index.html'));
+router.use((error, req, res, next) => {
+    res.status(error.status || 500).send('An error occurred!\n' + error.message);
 });
 
 module.exports = router;

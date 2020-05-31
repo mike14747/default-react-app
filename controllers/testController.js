@@ -1,15 +1,16 @@
 const router = require('express').Router();
-const db = require('../models/index.js');
+const User = require('../models/user');
 
-// all these routes point to the /api folder as specified in server.js
-router.route('/').get((req, res) => {
-    res.status(200).send('Sending this from the /api route root!');
-});
-
-router.get('/users/:id', (req, res) => {
-    db.User.getUserById(req.params.id, (data) => {
-        res.json(data);
-    });
+router.get('/users/:id', async (req, res, next) => {
+    const paramsObj = {
+        id: req.params.id,
+    };
+    try {
+        const data = await User.getUserById(paramsObj);
+        data[0] ? res.json(data[0]) : next(data[1]);
+    } catch (error) {
+        next(error);
+    }
 });
 
 module.exports = router;

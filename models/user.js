@@ -1,13 +1,18 @@
-const connection = require('../config/connection');
+const pool = require('../config/connectionPool.js').getDb();
 
 const User = {
-    getUserById: (id, cb) => {
-        const queryString = 'SELECT u.user_id, u.username, u.password FROM users AS u WHERE u.user_id=? LIMIT 1;';
-        const queryParams = [id];
-        connection.execute(queryString, queryParams, (err, results) => {
-            if (err) throw err;
-            cb(results);
-        });
+    getUserById: async (paramsObj = { id: null }) => {
+        if (paramsObj.id === null) return [null, 'Incorrect parameters were received!'];
+        try {
+            const queryString = 'SELECT u.user_id, u.username, u.password FROM users AS u WHERE u.user_id=? LIMIT 1;';
+            const queryParams = [
+                paramsObj.id,
+            ];
+            const [result] = await pool.query(queryString, queryParams);
+            return [result, null];
+        } catch (error) {
+            return [null, error];
+        }
     },
 };
 
