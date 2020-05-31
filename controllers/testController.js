@@ -1,7 +1,9 @@
 const router = require('express').Router();
 const User = require('../models/user');
 
-router.get('/users/:id', async (req, res, next) => {
+// all these routes point to the /api/users folder as specified in server.js and index.js
+
+router.get('/:id', async (req, res, next) => {
     const paramsObj = {
         id: req.params.id,
     };

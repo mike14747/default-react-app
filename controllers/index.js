@@ -2,7 +2,7 @@
 
 const router = require('express').Router();
 
-router.use('/', require('./testController'));
+router.use('/users', require('./testController'));
 
 router.use((req, res, next) => {
     const error = new Error('Route not found');
