@@ -61,7 +61,7 @@ npm i dotenv express if-env mysql2
 -   The following linting packages (plus concurrently and nodemon) were installed as devDependencies in the following way:
 
 ```
-npm i --save-dev babel-eslint eslint eslint-config-standard eslint-plugin-import eslint-plugin-node eslint-plugin-promise eslint-plugin-react eslint-plugin-react-hooks eslint-plugin-standard concurrently nodemon
+npm i --save-dev eslint eslint-config-standard eslint-plugin-import eslint-plugin-node eslint-plugin-promise eslint-plugin-react eslint-plugin-react-hooks eslint-plugin-standard concurrently nodemon
 ```
 
 ---
@@ -160,7 +160,7 @@ git push -u origin master
 ### Linting
 
 -   The following files were added at the root location: **.eslintrc.json** and **.eslintignore**. These are my linting config and ignore files which contain my linting rules.
--   I had to remove the following line from **client/package.json** to get my root **eslint config/rules** to work for the client folder:
+-   I had to remove the following line from **client/package.json** to get my root **eslint config and rules** to work for the client folder:
 
 ```
 "eslintConfig": {
@@ -220,4 +220,4 @@ npm install
 -   Mike Gullo
 -   This project's github repo: https://github.com/mike14747/default-react-app
 -   Me on github: https://github.com/mike14747
--   Contact me at: mike14747@oh.rr.com for more info about this project.
+-   Contact me at: mikegullo4747@gmail for more info about this project.
