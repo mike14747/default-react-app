@@ -80,5 +80,5 @@ typings/
 .env.production.local
 
 # Lock files
-yarn.lock
-package-lock.json
+# yarn.lock
+# package-lock.json
