@@ -25,8 +25,6 @@ npx create-react-app default-react-app
 -   I created an **.env** file in the root with the following contents:
 
 ```
-PORT=3001
-NODE_ENV=dev
 DB_HOST=localhost
 DB_PORT=3306
 DB_USER=root
@@ -72,8 +70,7 @@ npm i --save-dev eslint eslint-config-standard eslint-plugin-import eslint-plugi
 
 ```
 require('dotenv').config();
-// destructure the process.env object
-const { PORT, NODE_ENV } = process.env;
+const PORT = process.env.PORT || 3001;
 
 const express = require('express');
 const app = express();
@@ -82,34 +79,30 @@ const path = require('path');
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// include the function to connection to the database
 const connectionPool = require('./config/connectionPool');
 
-// try to connect to the database
 connectionPool.mysqlConnect()
     .then(() => {
-        // the database connection was successful, so use the controller /api routes
         app.use('/api', require('./controllers'));
     })
     .catch((error) => {
-        // the database connection failed, so all calls to the /api route will have status code 500 returned
         console.log('An error occurred connecting to the database!\n', error.message);
         app.get('/api/*', (req, res) => {
             res.status(500).send('There is no connection to the database!');
         });
     })
     .finally(() => {
-        // regardless of whether the database connection was successful, send all routes not matching the controller routes to the react app
-        if (NODE_ENV === 'production') {
+        if (process.env.NODE_ENV === 'production') {
             app.use(express.static('./client/build'));
             app.get('*', (req, res) => {
                 res.sendFile(path.join(__dirname, './client/build/index.html'));
             });
         }
-        app.listen(PORT, () => {
-            console.log('Server is listening on port ' + PORT);
-        });
     });
+
+app.listen(PORT, () => {
+    console.log('Server is listening on port ' + PORT);
+});
 ```
 
 ---
@@ -198,8 +191,6 @@ git clone git@github.com:mike14747/default-react-app.git
 2. Create a **.env** file in the root folder with the following content:
 
 ```
-PORT=3001
-NODE_ENV=dev
 DB_HOST=localhost
 DB_PORT=3306
 DB_USER=root
