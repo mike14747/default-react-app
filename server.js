@@ -8,9 +8,9 @@ const path = require('path');
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-const connectionPool = require('./config/connectionPool');
+const { dbTest } = require('./config/connectionPool');
 
-connectionPool.mysqlConnect()
+dbTest()
     .then(() => {
         app.use('/api', require('./controllers'));
     })
