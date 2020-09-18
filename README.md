@@ -59,7 +59,7 @@ npm i dotenv express if-env mysql2
 - The following linting packages (plus concurrently and nodemon) were installed as devDependencies in the following way:
 
 ```
-npm i --save-dev eslint eslint-config-standard eslint-plugin-import eslint-plugin-node eslint-plugin-promise eslint-plugin-react eslint-plugin-react-hooks eslint-plugin-standard concurrently nodemon
+npm install --save-dev eslint-plugin-react@latest eslint-config-standard@latest eslint@6.8.0 eslint-plugin-import@>=2.18.0 eslint-plugin-node@>=9.1.0 eslint-plugin-promise@>=4.2.1 eslint-plugin-standard@>=4.0.0 eslint-plugin-react-hooks concurrently nodemon
 ```
 
 ---
@@ -79,9 +79,11 @@ const path = require('path');
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-const connectionPool = require('./config/connectionPool');
+const { dbTest } = require('./config/connectionPool');
 
-connectionPool.mysqlConnect()
+app.use(require('./controllers/testController'));
+
+dbTest()
     .then(() => {
         app.use('/api', require('./controllers'));
     })
@@ -100,9 +102,7 @@ connectionPool.mysqlConnect()
         }
     });
 
-app.listen(PORT, () => {
-    console.log('Server is listening on port ' + PORT);
-});
+app.listen(PORT, () => console.log('Server is listening on port ' + PORT));
 ```
 
 ---
@@ -129,6 +129,29 @@ app.listen(PORT, () => {
 },
 ```
 
+- The following devDependencies and dependencies were installed in the server-side app.
+    - Many of the devDependencies are for linting.
+```
+"devDependencies": {
+    "concurrently": "^5.2.0",
+    "eslint": "^6.8.0",
+    "eslint-config-standard": "^14.1.1",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-react": "^7.20.5",
+    "eslint-plugin-react-hooks": "^4.0.8",
+    "eslint-plugin-standard": "^4.0.1",
+    "nodemon": "^2.0.4"
+},
+"dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "if-env": "^1.0.4",
+    "mysql2": "^1.7.0"
+}
+```
+
 - The following line was added to the **client/package.json** (to use the express backend while the development server is running):
 
 ```
@@ -153,6 +176,7 @@ git push -u origin master
 ### Linting
 
 - The following files were added at the root location: **.eslintrc.json** and **.eslintignore**. These are my linting config and ignore files which contain my linting rules.
+- Several linting devDependencies were added (as specified above) to handle the linting.
 - I had to remove the following line from **client/package.json** to get my root **eslint config and rules** to work for the client folder:
 
 ```

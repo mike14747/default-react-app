@@ -10,6 +10,8 @@ app.use(express.json());
 
 const { dbTest } = require('./config/connectionPool');
 
+app.use(require('./controllers/testController'));
+
 dbTest()
     .then(() => {
         app.use('/api', require('./controllers'));
@@ -29,6 +31,4 @@ dbTest()
         }
     });
 
-app.listen(PORT, () => {
-    console.log('Server is listening on port ' + PORT);
-});
+app.listen(PORT, () => console.log('Server is listening on port ' + PORT));

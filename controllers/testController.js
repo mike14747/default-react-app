@@ -1,18 +1,14 @@
 const router = require('express').Router();
-const User = require('../models/user');
+const { dbTest } = require('../config/connectionPool');
 
-// all these routes point to the /api/users folder as specified in server.js and index.js
-
-router.get('/:id', async (req, res, next) => {
-    const paramsObj = {
-        id: req.params.id,
-    };
-    try {
-        const data = await User.getUserById(paramsObj);
-        data[0] ? res.json(data[0]) : next(data[1]);
-    } catch (error) {
-        next(error);
-    }
+router.get('/api/test', (req, res) => {
+    dbTest()
+        .then(() => {
+            res.status(200).end();
+        })
+        .catch(error => {
+            res.status(500).json({ message: 'An error occurred connecting to the database! ' + error.message });
+        });
 });
 
 module.exports = router;

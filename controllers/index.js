@@ -2,7 +2,11 @@
 
 const router = require('express').Router();
 
-router.use('/users', require('./testController'));
+router.get('/', (req, res) => {
+    res.status(200).send('Sending this from the root /api endpoint.');
+});
+
+router.use('/users', require('./usersController'));
 
 router.use((req, res, next) => {
     const error = new Error('Route not found');
