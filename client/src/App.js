@@ -7,6 +7,9 @@ import Header from './components/header/header';
 import Navbar from './components/navbar/navbar';
 import Footer from './components/footer/footer';
 import Home from './pages/home/home';
+import About from './pages/about';
+import UsersFunctional from './pages/usersFunctional'
+import NoMatch from './pages/noMatch';
 
 export default function App() {
     return (
@@ -20,7 +23,8 @@ export default function App() {
                 <Switch>
                     <Route exact path="/"><Home /></Route>
                     <Route exact path="/about" component={About} />
-                    <Route path="/users"><Users /></Route>
+                    <Route path="/users1"><UsersClass /></Route>
+                    <Route path="/users2"><UsersFunctional /></Route>
                     <Route component={NoMatch} />
                 </Switch>
                 <Footer />
@@ -29,21 +33,7 @@ export default function App() {
     );
 }
 
-function About() {
-    return <h2>About</h2>;
-}
-
-const NoMatch = () => {
-    return (
-        <div>
-            <h3 className="text-danger mb-4">Error 404!</h3>
-            <p>An error has occurred.</p>
-            <p>The page you are looking for does not exist!</p>
-        </div>
-    );
-};
-
-class Users extends Component {
+class UsersClass extends Component {
     state = {
         usersArray: [],
     };
@@ -54,7 +44,7 @@ class Users extends Component {
                 this.setState({ usersArray: response.data });
             })
             .catch(error => {
-                console.log('There has been an error.\n\n' + error);
+                console.log('There has been an error.', error);
             });
     }
 

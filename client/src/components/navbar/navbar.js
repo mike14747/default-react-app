@@ -11,7 +11,10 @@ const Navbar = () => {
                 <Link to="/about">About</Link>
             </li>
             <li>
-                <Link to="/users">Users</Link>
+                <Link to="/users1">Users (class component)</Link>
+            </li>
+            <li>
+                <Link to="/users2">Users (functional component)</Link>
             </li>
         </ul>
     );

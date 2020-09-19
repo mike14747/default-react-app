@@ -8,7 +8,7 @@ const Header = () => {
                 <span className="text-secondary">Header Component</span>
             </div>
             <div className="col-6 p-4 text-secondary">
-                Testing the public/images path: <img src="/images/pushpin.png" />
+                Testing the public/images path: <img src="/images/pushpin.png" alt="pushpin" />
             </div>
         </div>
     );
