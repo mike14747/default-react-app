@@ -88,7 +88,6 @@ dbTest()
         app.use('/api', require('./controllers'));
     })
     .catch((error) => {
-        console.log('An error occurred connecting to the database!\n', error.message);
         app.get('/api/*', (req, res) => {
             res.status(500).send('There is no connection to the database!');
         });
