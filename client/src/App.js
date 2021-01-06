@@ -8,7 +8,7 @@ import Navbar from './components/navbar/navbar';
 import Footer from './components/footer/footer';
 import Home from './pages/home/home';
 import About from './pages/about';
-import UsersFunctional from './pages/usersFunctional'
+import UsersFunctional from './pages/usersFunctional';
 import NoMatch from './pages/noMatch';
 
 export default function App() {
@@ -34,9 +34,12 @@ export default function App() {
 }
 
 class UsersClass extends Component {
-    state = {
-        usersArray: [],
-    };
+    constructor(props) {
+        super(props);
+        this.state = {
+            usersArray: [],
+        };
+    }
 
     componentDidMount() {
         axios.get('/api/users/1')
