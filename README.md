@@ -32,6 +32,12 @@ DB_PW=<your_mysql_password>
 DB_NAME=testDB1
 ```
 
+If you want to use a router in your React app, install _react-router-dom_.
+
+```bash
+npm i react-router-dom
+```
+
 ---
 
 ### Deleted code/files
